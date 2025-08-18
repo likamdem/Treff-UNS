@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Treff UNS</string>
+    <string name="einloggen">Einloggen</string>
+    <string name="anmelden">Anmelden</string>
+    <string name="email">Email</string>
+    <string name="passwort">Passwort</string>
+    <string name="melden_message">Melden sie sich an.</string>
+    <string name="kein_konto_frage">haben sie kein Konto?</string>
 </resources>

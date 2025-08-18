@@ -1,6 +1,8 @@
 package com.example.treffuns;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,21 @@ public class SplashActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // --- Kernlogik für den Timer ---
+
+        // Erstellt einen neuen Handler, um eine Aktion mit einer Verzögerung auszuführen.
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Startet eine neue Aktivität (hier die LoginActivity). Dies ist der
+                // Übergang vom Splash-Screen zum nächsten Bildschirm.
+                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+
+                // Beendet die aktuelle Aktivität (SplashActivity). Das ist wichtig,
+                // damit der Benutzer nicht über die Zurück-Taste zum Splash-Screen zurückkehren kann.
+                finish();
+            }
+        }, 3000); // Legt die Verzögerung auf 3000 Millisekunden (3 Sekunden) fest.
     }
 }
