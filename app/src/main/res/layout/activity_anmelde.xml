@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrierenActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10sp"
+                android:onClick="anmelden"
+                android:src="@drawable/baseline_arrow_back_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dm_medium"
+                android:padding="5dp"
+                android:text="@string/einloggen"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/apptitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/dancing_bold"
+        android:padding="5dp"
+        android:text="@string/app_name"
+        android:textColor="@color/my_primary"
+        android:textSize="40sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/apptitle"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="@string/email"
+            android:padding="20dp"
+            app:placeholderText="beispiel@gmail.com"
+            android:textColorHint="@color/my_primary"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="@color/icon_color"
+            app:hintTextColor="@color/my_primary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableStart="@drawable/baseline_email_24"
+                android:drawablePadding="8dp"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/my_primary"
+                android:textColorHint="@color/my_primary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="@string/passwort"
+            android:padding="20dp"
+            android:textColorHint="@color/my_primary"
+            app:placeholderText="Passwort muss mindestens 8 Zeichen lang sein und mindestens 1 Großbuchstaben, 1 Zahl und 1 Sonderzeichen enthalten."
+            android:tooltipText="asswort muss mindestens 8 Zeichen lang sein und mindestens 1 Großbuchstaben, 1 Zahl und 1 Sonderzeichen enthalten."
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="@color/icon_color"
+            app:hintTextColor="@color/my_primary"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/my_primary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwort"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableStart="@drawable/icons8_lock"
+                android:drawablePadding="8dp"
+                android:inputType="textPassword"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="@string/confirm_passwort"
+            android:padding="20dp"
+            android:textColorHint="@color/black"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="@color/icon_color"
+            app:hintTextColor="@color/my_primary"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/my_primary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirmPasswort"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableStart="@drawable/icons8_lock"
+                android:drawablePadding="8dp"
+                android:inputType="textPassword"
+                android:textColor="@color/my_primary"
+                android:textColorHint="@color/my_primary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/anmeldenBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/dm_medium"
+            android:padding="20dp"
+            android:text="@string/anmelden"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/my_primary" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dm_medium"
+                android:padding="5dp"
+                android:text="@string/bereits_konto_frage"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dm_medium"
+                android:padding="5dp"
+                android:text="@string/loggen_message"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                android:onClick="anmelden"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

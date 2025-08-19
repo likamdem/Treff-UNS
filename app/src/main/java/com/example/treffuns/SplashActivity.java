@@ -31,7 +31,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 // Startet eine neue Aktivität (hier die LoginActivity). Dies ist der
                 // Übergang vom Splash-Screen zum nächsten Bildschirm.
-                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                startActivity(new Intent(SplashActivity.this, AnmeldenActivity.class));
 
                 // Beendet die aktuelle Aktivität (SplashActivity). Das ist wichtig,
                 // damit der Benutzer nicht über die Zurück-Taste zum Splash-Screen zurückkehren kann.
