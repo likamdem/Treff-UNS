@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Treff UNS</string>
-    <string name="einloggen">Einloggen</string>
-    <string name="anmelden">Anmelden</string>
+    <string name="anmelden">anmelden</string>
+    <string name="registrieren">Registrieren</string>
     <string name="email">Email</string>
     <string name="passwort">Passwort</string>
-    <string name="melden_message">Melden sie sich an.</string>
-    <string name="loggen_message">Loggen sie sich ein.</string>
+    <string name="Registrieren_message">Registrieren sie sich.</string>
+    <string name="loggen_message">Melden sie sich an.</string>
     <string name="kein_konto_frage">haben sie kein Konto?</string>
-    <string name="bereits_konto_frage">haben sie bereits Konto?</string>
+    <string name="bereits_konto_frage">haben sie bereits ein Konto?</string>
     <string name="confirm_passwort">Passwort Bestätigen</string>
 </resources>

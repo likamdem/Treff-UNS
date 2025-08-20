@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "136308299720",
+    "project_id": "treff-uns-back-end",
+    "storage_bucket": "treff-uns-back-end.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136308299720:android:3e414f76b10379de6fd2fd",
+        "android_client_info": {
+          "package_name": "com.example.treffuns"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBqapRah6GFnqd0xMgJfQSEsuQbFyklRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

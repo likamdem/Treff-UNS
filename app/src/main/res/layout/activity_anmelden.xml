@@ -21,13 +21,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10sp"
+                android:onClick="registrieren"
                 android:src="@drawable/baseline_arrow_back_24" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="@string/anmelden"
+                android:text="@string/registrieren"
                 android:textColor="@color/my_primary"
                 android:fontFamily="@font/dm_medium"
                 android:textSize="24sp" />
@@ -117,7 +118,7 @@
             android:layout_margin="20dp"
             android:fontFamily="@font/dm_medium"
             android:padding="20dp"
-            android:text="@string/einloggen"
+            android:text="@string/anmelden"
             android:textAllCaps="true"
             android:textColor="@color/white"
             app:backgroundTint="@color/my_primary" />
@@ -141,10 +142,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="@string/melden_message"
+                android:text="@string/Registrieren_message"
                 android:fontFamily="@font/dm_medium"
                 android:textColor="@color/blue"
                 android:textStyle="bold"
+                android:onClick="registrieren"
                 android:textSize="16sp" />
         </LinearLayout>
 
