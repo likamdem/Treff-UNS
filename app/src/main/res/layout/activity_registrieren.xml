@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrierenActivity">
+    tools:context=".Activities.RegistrierenActivity">
 
 
     <LinearLayout
@@ -153,13 +153,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/anmeldenBtn"
+            android:id="@+id/registrirenBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:fontFamily="@font/dm_medium"
             android:padding="20dp"
-            android:text="@string/anmelden"
+            android:text="@string/registrieren"
             android:textAllCaps="true"
             android:textColor="@color/white"
             app:backgroundTint="@color/my_primary" />

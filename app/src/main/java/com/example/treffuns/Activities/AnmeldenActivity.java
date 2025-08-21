@@ -1,9 +1,8 @@
-package com.example.treffuns;
+package com.example.treffuns.Activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -15,7 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 
-import com.google.firebase.FirebaseApp;
+import com.example.treffuns.R;
 import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -24,16 +23,15 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class AnmeldenActivity extends AppCompatActivity {
 
-
-// Reguläre Ausdrücke zur Validierung von E-Mail und Passwort
+    // Reguläre Ausdrücke zur Validierung von E-Mail und Passwort
     private final String E_MAIL_REGEX = "^[a-zA-Z0-9._%+-]+@(studmail\\.w-hs\\.de|[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$";
     private final String PASSWORT_REGEX = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\W_]).{8,}$";
 
-
+    // UI-Element für den Anmelde-Button
     private Button anmeldeButton;
 
+    // Firebase-Authentifizierungsinstanz zur Verwaltung der Benutzeranmeldung
     private FirebaseAuth auth;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,18 +43,23 @@ public class AnmeldenActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Initialisiert den Anmelde-Button und den zugehörigen Klick-Listener.
         anmeldeButton = findViewById(R.id.einloggenBtn);
         anmeldeButton.setOnClickListener(this::anmelden);
+
+        // Initialisiert die Firebase-Authentifizierungsinstanz.
         auth = FirebaseAuth.getInstance();
     }
 
-    //Navigiert zur registrieren-Aktivität.
+    // Navigiert zur Registrieren-Aktivität.
     public void registrieren(View view){
         startActivity(new Intent(AnmeldenActivity.this, RegistrierenActivity.class));
     }
 
-    // Methode, die den Anmeldevorgang startet. Sie wird bei einem Klick auf den Login-Button aufgerufen.
+    // Methode, die den Anmeldevorgang startet. Sie wird bei einem Klick auf den Anmelde-Button aufgerufen.
     public void anmelden(View view) {
+        // UI-Elemente für die Eingabefelder
         TextInputEditText emailFeld = findViewById(R.id.email);
         TextInputEditText passwortFeld = findViewById(R.id.passwort);
         ProgressDialog ladeDialog = new ProgressDialog(this);
@@ -77,33 +80,41 @@ public class AnmeldenActivity extends AppCompatActivity {
         } else if (!passwortFeld.getText().toString().matches(PASSWORT_REGEX)) {
             passwortFeld.setError("Bitte geben Sie ein gültiges Passwort ein.");
         } else {
-            // Zeigt den Ladedialog an, wenn alle Überprüfungen erfolgreich waren
+            // Zeigt den Ladedialog an, wenn alle Überprüfungen erfolgreich waren.
             ladeDialog.show();
 
             String gueltigeEmail = emailFeld.getText().toString();
             String gueltigesPasswort = passwortFeld.getText().toString();
 
+            // Versucht, den Benutzer bei Firebase mit E-Mail und Passwort anzumelden.
             auth.signInWithEmailAndPassword(gueltigeEmail, gueltigesPasswort).addOnCompleteListener(results ->{
                 if(results.isSuccessful()){
+                    // Die Anmeldung war erfolgreich.
                     ladeDialog.cancel();
                     emailFeld.getText().clear();
                     passwortFeld.getText().clear();
-                    Toast.makeText(this,"Einloggen erfolgreich.", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(AnmeldenActivity.this, MainActivity.class);
+                    Toast.makeText(this, "Einloggen erfolgreich.", Toast.LENGTH_SHORT).show();
+
+                    // Startet die HomeActivity und löscht den Back-Stack.
+                    Intent intent = new Intent(AnmeldenActivity.this, HomeActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
-                }else {
+                } else {
+                    // Die Anmeldung ist fehlgeschlagen.
                     ladeDialog.cancel();
                     try{
+                        // Wirft die Ausnahme, um sie gezielt behandeln zu können.
                         throw results.getException();
-                    }catch (FirebaseAuthInvalidCredentialsException fE){
-                        emailFeld.setError("Ihre Email oder Passwort ist falsch.");
+                    } catch (FirebaseAuthInvalidCredentialsException fE){
+                        // Behandelt den Fehler bei falschen Anmeldedaten.
+                        emailFeld.setError("Ihre E-Mail oder Ihr Passwort ist falsch.");
                         emailFeld.requestFocus();
-                    }catch (FirebaseNetworkException e){
-                        Toast.makeText(this, "Sie haben keine Internet-Verbindung. Bitte verbinden sie sich.", Toast.LENGTH_LONG).show();
-                    }
-                    catch (Exception e) {
-                        Toast.makeText(this, "Einloggen fehlgeschlagen. bitte versuchen sie es später.", Toast.LENGTH_LONG).show();
+                    } catch (FirebaseNetworkException e){
+                        // Behandelt den Fehler bei fehlender Internetverbindung.
+                        Toast.makeText(this, "Sie haben keine Internet-Verbindung. Bitte verbinden Sie sich.", Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        // Behandelt alle anderen unerwarteten Fehler.
+                        Toast.makeText(this, "Einloggen fehlgeschlagen. Bitte versuchen Sie es später.", Toast.LENGTH_LONG).show();
                     }
                 }
             });

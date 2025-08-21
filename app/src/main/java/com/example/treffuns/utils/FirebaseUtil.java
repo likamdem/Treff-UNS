@@ -1,4 +1,4 @@
-package com.example.treffuns;
+package com.example.treffuns.utils;
 
 
 import com.google.firebase.auth.FirebaseAuth;

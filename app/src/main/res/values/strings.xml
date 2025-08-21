@@ -9,4 +9,10 @@
     <string name="kein_konto_frage">haben sie kein Konto?</string>
     <string name="bereits_konto_frage">haben sie bereits ein Konto?</string>
     <string name="confirm_passwort">Passwort Bestätigen</string>
+    <string name="home">Home</string>
+    <string name="suche">Suche</string>
+    <string name="neues">Neues</string>
+    <string name="profil">Profil</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

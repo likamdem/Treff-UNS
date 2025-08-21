@@ -1,6 +1,6 @@
-package com.example.treffuns;
+package com.example.treffuns.model;
 
-public class Usermodel {
+public class  Usermodel {
     private String vorname;
     private String nachname;
 
