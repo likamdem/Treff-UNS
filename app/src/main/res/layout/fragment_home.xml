@@ -1,14 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Willkommen bei MeetUs!"
+            android:textSize="32sp"
+            android:textColor="#333333"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/dm_bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deine Plattform, um Events und Leute in deiner Nähe zu finden und dich zu vernetzen."
+            android:textSize="18sp"
+            android:textColor="#666666"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/dm_medium"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#E3F2FD"> <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="So funktioniert's:"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#2196F3"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/dm_bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/baseline_search_24"
+                    app:tint="#2196F3"
+                    android:layout_marginEnd="12dp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Suche nach Meetups, die dich interessieren."
+                    android:textSize="16sp"
+                    android:textColor="#424242"
+                    android:fontFamily="@font/dm_medium"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/baseline_add_24"
+                    app:tint="#2196F3"
+                    android:layout_marginEnd="12dp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Erstelle deine eigenen Meetings und lade Freunde ein."
+                    android:textSize="16sp"
+                    android:textColor="#424242"
+                    android:fontFamily="@font/dm_medium"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/baseline_account_circle_24"
+                    app:tint="#2196F3"
+                    android:layout_marginEnd="12dp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Verwalte dein Profil und bleibe mit anderen in Kontakt."
+                    android:textSize="16sp"
+                    android:textColor="#424242"
+                    android:fontFamily="@font/dm_medium"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_my_chats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FFFDE7">
+             <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meine Chats"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#FFC107"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/dm_bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Du hast noch keine Chats begonnen. Starte jetzt ein Meeting und vernetze dich!"
+                android:id="@+id/tv_no_chats"
+                android:textSize="16sp"
+                android:textColor="#666666"
+                android:layout_marginBottom="12dp"
+                android:visibility="gone"
+                android:fontFamily="@font/dm_medium"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recent_chats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="3"
+                tools:listitem="@layout/chat_message_recycler_row" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_view_all_chats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alle Chats anzeigen"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_find_meetings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/treffenBtn"
+            android:textColor="@color/white"
+            android:paddingVertical="12dp"
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp"
+            app:icon="@drawable/baseline_search_24"
+            app:iconGravity="textStart" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_create_meeting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/erstellTreffenBtn"
+            android:textColor="@color/white"
+            android:paddingVertical="12dp"
+            android:textSize="18sp"
+            app:icon="@drawable/baseline_add_24"
+            app:iconGravity="textStart" />
+
+    </LinearLayout>
+
+</ScrollView>
