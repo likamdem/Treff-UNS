@@ -17,7 +17,7 @@
             android:text="@string/treffenName"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:id="@+id/meeting_name"/>
+            android:id="@+id/treffen_name"/>
 
     </LinearLayout>
 </LinearLayout>

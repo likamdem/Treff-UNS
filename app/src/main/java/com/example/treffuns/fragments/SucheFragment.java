@@ -3,12 +3,21 @@ package com.example.treffuns.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.example.treffuns.R;
+import com.example.treffuns.adapter.SucheTreffenRecyclerAdapter;
+import com.example.treffuns.model.TreffenModel;
+import com.example.treffuns.utils.FirebaseUtil;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.Query;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +25,15 @@ import com.example.treffuns.R;
  * create an instance of this fragment.
  */
 public class SucheFragment extends Fragment {
+
+
+
+    EditText searchInput;
+    ImageButton searchButton;
+
+    RecyclerView recyclerView;
+
+    SucheTreffenRecyclerAdapter adapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +79,53 @@ public class SucheFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_suche, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_suche, container, false);
+        searchInput = rootView.findViewById(R.id.suche_treffen_input);
+        searchButton = rootView.findViewById(R.id.suche_treffen_btn);
+        recyclerView = rootView.findViewById(R.id.suche_treffen_recycler_view);
+        searchInput.requestFocus();
+        searchButton.setOnClickListener(v->{
+            String searchTerm = searchInput.getText().toString();
+            if (searchTerm.isBlank()){
+                searchInput.setError("Ungültige Treffenname");
+                return;
+            }
+            setupSearchRecyclerView(searchTerm);
+        });
+        // Inflate the layout for this fragment
+        return rootView;
+    }
+
+
+    void setupSearchRecyclerView(String searchTerm){
+        Query query = FirebaseUtil.allTreffenCollectionReference()
+                .whereGreaterThanOrEqualTo("treffenName", searchTerm);
+        FirestoreRecyclerOptions<TreffenModel> options =  new FirestoreRecyclerOptions.Builder<TreffenModel>()
+                .setQuery(query, TreffenModel.class).build();
+        adapter = new SucheTreffenRecyclerAdapter(options, getActivity().getApplicationContext());
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+        recyclerView.setAdapter(adapter);
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        if (adapter != null)
+            adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (adapter != null)
+            adapter.stopListening();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adapter != null)
+            adapter.notifyDataSetChanged();
     }
 }

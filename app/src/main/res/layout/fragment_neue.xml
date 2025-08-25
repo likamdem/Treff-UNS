@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Meeting erstellen"
+            android:text="@string/erstellTreffen"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:text="Name des Meetings"
+                android:text="@string/treffenName"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -70,7 +70,7 @@
                     android:id="@+id/et_meeting_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Meeting Name eingeben"
+                    android:hint="@string/treffenNamegeben"
                     android:inputType="textCapSentences"
                     android:maxLength="50"
                     android:singleLine="true" />
@@ -81,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:text="Kategorie (z.B. Lernen)"
+                android:text="@string/treffenKategorie"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -100,7 +100,7 @@
                     android:id="@+id/actv_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Kategorie auswählen"
+                    android:hint="@string/kategorieAuswahl"
                     android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -109,7 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Typ des Meetings"
+                android:text="@string/treffenTyp"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -128,20 +128,20 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
                     android:checked="true"
-                    android:text="Present" />
+                    android:text="@string/present" />
 
                 <RadioButton
                     android:id="@+id/rb_public"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Online" />
+                    android:text="@string/online" />
             </RadioGroup>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:text="Treffpunkt"
+                android:text="@string/treffpunkt"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -161,7 +161,7 @@
                     android:id="@+id/et_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Treffpunkt eingeben"
+                    android:hint="@string/treffpunktieingabe"
                     android:inputType="textCapWords"
                     android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -172,7 +172,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/my_secondary"
                 android:paddingVertical="12dp"
-                android:text="Meeting erstellen"
+                android:text="@string/erstellTreffen"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:cornerRadius="8dp" />
@@ -182,7 +182,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/cerulean_blue"
                 android:paddingVertical="12dp"
-                android:text="Meeting Sehen"
+                android:text="@string/treffensehen"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:layout_marginTop="40dp"
